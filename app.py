@@ -51,6 +51,16 @@ elif choice=='Visualize Data':
                 title=f'Distribution of {scat_col}',
                 hole=0.3
                 )
+    c1.plotly_chart(fig1)
+    c2.plotly_chart(fig2)
+    fig3 = px.box(df, x=scat_col,y=snum_col, title=f'{snum_col} by {scat_col}')
+    st.plotly_chart(fig3)
+    fig4= px.treemap(
+        df,
+        path=['Generation','Type 1'],
+        title=f'Pokemon Type Distribution'
+    )
+    st.plotly_chart(fig4)
 
 elif choice == 'Column Analysis':
     columns = df.columns.tolist()
